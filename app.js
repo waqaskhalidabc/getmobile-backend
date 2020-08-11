@@ -37,15 +37,16 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+app.get("/ping",(req,res)=>{ res.send("pong")});
 
 /*mongoose.connect("mongodb://localhost/getMobile", { useNewUrlParser:true,useUnifiedTopology: true})
 .then(() =>console.log("Connected to Mongo ...."))
 .catch((error) =>console.log(error.message));*/
-
+console.log("connected intodatabase========");
 mongoose.connect("mongodb+srv://waqaskhalid:telenor0342@cluster0.lhmqt.mongodb.net/getMobile?retryWrites=true&w=majority", 
 { useNewUrlParser:true,useUnifiedTopology: true})
 .then(() =>console.log("Connected to Mongo ...."))
 .catch((error) =>console.log(error));
 
+console.log("connected=======");
 module.exports = app;

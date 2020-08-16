@@ -19,13 +19,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+
 app.use('/users', loginRouter);
 app.use('/products', productsRouter);
 app.use(express.json);
-// catch 404 and forward to error handler
+
+
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
+// catch 404 and forward to error handler
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -39,14 +46,15 @@ app.use(function(err, req, res, next) {
 });
 app.get("/ping",(req,res)=>{ res.send("pong")});
 
-/*mongoose.connect("mongodb://localhost/getMobile", { useNewUrlParser:true,useUnifiedTopology: true})
-.then(() =>console.log("Connected to Mongo ...."))
-.catch((error) =>console.log(error.message));*/
-console.log("connected intodatabase========");
-mongoose.connect("mongodb+srv://waqaskhalid:telenor0342@cluster0.lhmqt.mongodb.net/getMobile?retryWrites=true&w=majority", 
+mongoose.connect("mongodb://localhost/getMobile", { useNewUrlParser:true,useUnifiedTopology: true})
+.then(() =>console.log("Connected to Mongodb ...."))
+.catch((error) =>console.log(error.message));
+console.log("connected intodatabase======");
+/*mongoose.connect("mongodb+srv://waqaskhalid:telenor0342@cluster0.lhmqt.mongodb.net/getMobile?retryWrites=true&w=majority", 
 { useNewUrlParser:true,useUnifiedTopology: true})
-.then(() =>console.log("Connected to Mongo ...."))
-.catch((error) =>console.log(error));
+.then(() =>console.log("Connected to Mongo ...."))*/
+((error) =>console.log(error));
 
 console.log("connected=======");
 module.exports = app;
+

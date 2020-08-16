@@ -24,13 +24,13 @@ router.get("/:id", async (req, res) => {
       let p = await Product.findById(req.params.id);
       if (!p)
         return res.status(400).send("Product With given ID is not present"); 
-      return res.send(p); //everything is ok
+      return res.send(p); 
     } catch (err) {
       return res.status(400).send("Invalid ID"); 
     }
   });
 
-//update a record
+//update record
 router.put("/:id", validateProduct,async (req, res) => {
     let p = await Product.findById(req.params.id);
     p.title = req.body.title;

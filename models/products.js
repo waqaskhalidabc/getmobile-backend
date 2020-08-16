@@ -15,11 +15,11 @@ contact: String,
 
 function validateProduct(data) {
     const schema = Joi.object({
-        title: Joi.string().min(3).max(25).required(),
+        title: Joi.string().min(3).max(30).required(),
       price: Joi.number().min(0).required(),
-      ram:Joi.string().max(10).required(),
+      ram:Joi.string().min(1).required(),
       description: Joi.string().min(3).max(150).required(),
-contact: Joi.string().min(11).max(11).required(),
+contact: Joi.string().min(11).max(15).required(),
     });
     return schema.validate(data, { abortEarly: false });
   }

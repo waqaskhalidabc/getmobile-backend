@@ -18,8 +18,8 @@ function validateProduct(data) {
         title: Joi.string().min(3).max(30).required(),
       price: Joi.number().min(0).required(),
       ram:Joi.string().min(1).required(),
-      description: Joi.string().min(3).max(150).required(),
-contact: Joi.string().min(11).max(15).required(),
+      description: Joi.string().max(150),
+contact: Joi.string().min(11).max(11).required(),
     });
     return schema.validate(data, { abortEarly: false });
   }

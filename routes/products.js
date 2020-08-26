@@ -6,7 +6,7 @@ const validateProduct = require("../middlewares/validateProduct");
 var {Product} =require('../models/products');
 
 
-//get product
+
 
 router.get("/", async (req, res) => {
     try {
@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
     }
   });
 
-//update record
+
 router.put("/:id", validateProduct,async (req, res) => {
     let p = await Product.findById(req.params.id);
     p.title = req.body.title;
@@ -45,12 +45,12 @@ router.put("/:id", validateProduct,async (req, res) => {
 
 
 
-//update product
+
 router.delete("/:id",auth,admin, async (req, res) => {
     let p = await Product.findByIdAndDelete(req.params.id);
     return res.send(p);
   });
-  //Insert product
+  
   router.post("/",auth,validateProduct, async (req, res) => {
     let p = new Product();
     p.title = req.body.title;
